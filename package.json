@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "request": "^2.79.0",
+    "x-ray": "^2.3.1"
+  }
+}
