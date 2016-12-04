@@ -3,8 +3,8 @@ const ROUTER_MODEL = 'Nighthawk X6 R8000';
 const ROUTER_IP = '192.168.1.1';
 const ROUTER_USER = 'admin';
 const ROUTER_PASS = 'password';
-const MAX_UP = 1;
-const MAX_DOWN = 10;
+const MAX_UP = 1.10;
+const MAX_DOWN = 11.18;
 
 // Dependencies
 const request = require('request');
@@ -23,11 +23,8 @@ const x = Xray({
 const SEPARATOR = '<br>';
 const SEPARATOR_OUTPUT = ' - ';
 const TITLE = ROUTER_MODEL + ' - Connected Devices';
-// const DEVICE_TABLE_SEL = '#target > table > tr:nth-child(1) > td > div > ' +
-// 'table > tr:nth-child(4) > td > table';
 const DEVICE_TABLE_SEL = '#target > table > tr:nth-child(1) > td > div > ' +
 	'table > tr:nth-child(4) > td > table > tr';
-// const DEVICE_INFO_SEL = 'td:nth-child(5) @html | split';
 const DEVICE_INFO_SEL = 'td:nth-child(5) > span > table > tr > ' +
 	'td:nth-child(2) > span @html | split';
 const DEVICE_CONNECTION_TYPE_SEL = 'td:nth-child(4)';
@@ -39,7 +36,7 @@ var BANDWIDTH_DOWN_USED = 0;
 var BANDWIDTH_UP_USED = 0;
 var MAX_IP_LEN = ROUTER_IP.length;
 
-function calculateBandwithPercentag(results) {
+function calculateBandwithPercentage(results) {
 	results.forEach(function(result) {
 		MAX_IP_LEN = Math.max(result.info[1].length, MAX_IP_LEN);
 		var down = result.down.substring(0, result.down.length - 3);
@@ -101,7 +98,7 @@ function main() {
 			}
 			results = results.slice(1, results.length);
 
-			calculateBandwithPercentag(results);
+			calculateBandwithPercentage(results);
 
 			printResults(results);
 		});
