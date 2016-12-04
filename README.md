@@ -1,6 +1,6 @@
 # Netgear CLI
 
-<img src="https://raw.githubusercontent.com/benmarten/netgear-cli/resources/example.jpg" width="500">
+<img src="https://raw.githubusercontent.com/benmarten/netgear-cli/resources/example.jpg" width="885">
 
 This is a basic Netgear Router CLI written in Node.
 
